@@ -1,4 +1,5 @@
 var m = true; //true is rectangle, false is dot
+var mouse = false;
 
 var sb = document.getElementById("switchm");
 var cb = document.getElementById("clearb");
@@ -10,11 +11,13 @@ sb.addEventListener("click", function(){sw()});
 
 cb.addEventListener("click", function(){ca()});
 
-canvas.addEventListener("click", function(){dw()});
+canvas.addEventListener("mousedown", function(event){dw(event.pageX, event.pageY)});
+
+ctx.fillStyle = 'black';
 
 var ca = () => {
   ctx.fillStyle = 'white';
-  ctx.fillRect("0, 0, 600, 600");
+  ctx.fillRect(0, 0, 600, 600);
   ctx.fillStyle = 'black';
 }
 
@@ -25,4 +28,17 @@ var sw = () => {
   }else{
     sb.innerHTML = "Switch to rectangles";
   }
+}
+
+var dw = (x, y) => {
+	y -= 135;
+	x -= 10;
+	if(m){
+		ctx.fillRect(x - 5, y - 5, 10, 10);
+	}else{
+      	ctx.beginPath();
+      	ctx.arc(x, y, 5, 0, 2 * Math.PI, false);
+      	ctx.fill();
+      	ctx.stroke();
+	}
 }
