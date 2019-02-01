@@ -3,6 +3,8 @@
 // K01 -- ...and I want to Paint It Better
 // 2019-01-31
 
+// e.preventDefault() prevents the default action of an event from occurring
+
 // -----------------------------  VAR INIT  -----------------------------
 var m = true; //brush mode -- true is rectangle, false is dot
 
