@@ -4,7 +4,6 @@
 // 2019-02-04
 
 // -----------------------------  VAR INIT  -----------------------------
-var going = false;     //is animation running
 var rad = 0;           //size of the circle
 var growshrink = true; //true means circle will grow
 var anakin;            //id of animationframe
