@@ -37,7 +37,7 @@ db = connection.Lingo
 collection = db.prizes
 prizeDct = None
 
-with open("prize.json") as dct:
+with open("data/data.json") as dct:
     collection.drop()
     prizeDct = json.load(dct)
 
