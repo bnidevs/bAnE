@@ -1,3 +1,59 @@
 <html>
-{{content}}
+
+	<head>
+
+		<title>
+
+			Search Results
+
+		</title>
+
+	</head>
+
+	<body>
+	
+		<table border="1">
+
+			<tr>
+
+				<th>
+					Year
+				</th>
+
+				<th>
+					Category
+				</th>
+
+				<th>
+					Laureates
+				</th>
+
+			</tr>
+
+			{% for entry in content %}
+
+			<tr>
+
+				<td>
+					{{entry["year"]}}
+				</td>
+
+				<td>
+					{{entry["category"]}}
+				</td>
+
+				<td>
+					{% for laur in entry["laureates"] %}
+						{{laur["firstname"]}} {{laur["surname"]}} <br>
+					{% endfor %}
+				</td>
+
+			</tr>
+
+			{% endfor %}
+
+		</table>
+
+	</body>
+
 </html>
