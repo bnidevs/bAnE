@@ -10,14 +10,14 @@ var cc = (e) => {
     e.target.setAttribute("fill", "green");
   }else{
     e.target.remove();
-    svg.innerHTML += '<circle id="' + i.toString() + '" cx="' + (Math.floor(Math.random() * 500)).toString() + '" cy="' + (Math.random() * 500).toString() + '" r="20" fill="blue"/>';
+    svg.innerHTML += '<circle class="circ" cx="' + (Math.floor(Math.random() * 500)).toString() + '" cy="' + (Math.random() * 500).toString() + '" r="20" fill="blue"/>';
     document.getElementById(i.toString()).addEventListener("click", cc);
     i++;
   }
 }
 
 var dw = (e) => {
-	svg.innerHTML += '<circle id="' + i.toString() + '" cx="' + e.offsetX.toString() + '" cy="' + e.offsetY.toString() + '" r="20" fill="blue"/>';
+	svg.innerHTML += '<circle class="circ" cx="' + e.offsetX.toString() + '" cy="' + e.offsetY.toString() + '" r="20" fill="blue"/>';
   document.getElementById(i.toString()).addEventListener("click", cc);
   i++;
 }
