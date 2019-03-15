@@ -11,7 +11,7 @@ var cc = (e) => {
   }else{
     e.target.remove();
     svg.innerHTML += '<circle class="circ" cx="' + (Math.floor(Math.random() * 500)).toString() + '" cy="' + (Math.random() * 500).toString() + '" r="20" fill="blue"/>';
-    document.getElementById(i.toString()).addEventListener("click", cc);
+    document.getElementsByClass("circ").addEventListener("click", cc);
     i++;
   }
 }
