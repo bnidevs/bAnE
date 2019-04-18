@@ -1,3 +1,5 @@
+from functools import reduce
+
 def superstrip(s):
     puncs = {x for x in '!,"&?;:()[]\{\}.'}
     i = 0
@@ -17,20 +19,20 @@ with open("book2.txt", "r") as f:
 
 contents = [x.strip() for x in contents.split("\n") if x.strip() != ""]
 words = [superstrip(x.strip()) for y in contents for x in y.split(" ")]
+for i in range(len(words)):
+    if "-" in set(words[i]):
+        words = words[:i] + words[i].split("-") + words[i+1:]
+
 
 def freqsing(s):
     s = s.lower()
-    ct = 0
-    for w in words:
-        if w.lower() == s:
-            ct += 1
-    return ct
+    return reduce(lambda x, y: x + y, [1 for w in words if w.lower() == s])
 
 def grpfreq(ls):
-    ls = {x.lower() for x in ls}
+    ls = [x.lower() for x in ls]
     ct = 0
-    for w in words:
-        if w.lower() in ls:
+    for i in range(len(words)):
+        if [x.lower() for x in words[i:i + len(ls)]] == ls:
             ct += 1
     return ct
 
@@ -56,8 +58,8 @@ print(freqsing("I"))
 
 print()
 
-print("combined frequency of 'you', 'I', 'stop', 'to':")
-print(grpfreq(["you", "I", "stop", "to"]))
+print("combined frequency of 'I love you':")
+print(grpfreq(["I", "love", "you"]))
 
 print()
 
