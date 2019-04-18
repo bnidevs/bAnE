@@ -1,16 +1,18 @@
 def superstrip(s):
     puncs = {x for x in '!,"&?;:()[]\{\}.'}
-    for i in range(len(s)):
+    i = 0
+    while i < len(s):
         if s == "":
             return ""
         if s[i] in puncs:
             s = s[:i] + s[i+1:]
             i -= 1
+        i += 1
     return s
 
 contents = ""
 
-with open("book.txt", "r") as f:
+with open("book2.txt", "r") as f:
   contents = f.read()
 
 contents = [x.strip() for x in contents.split("\n") if x.strip() != ""]
@@ -49,7 +51,15 @@ def hifreq():
 
     return mxs
 
-print(words)
-print(freqsing("im"))
-print(grpfreq(["you", "im", "sorry", "hello"]))
+print("frequency of 'I':")
+print(freqsing("I"))
+
+print()
+
+print("combined frequency of 'you', 'I', 'stop', 'to':")
+print(grpfreq(["you", "I", "stop", "to"]))
+
+print()
+
+print("most frequent word:")
 print(hifreq())
